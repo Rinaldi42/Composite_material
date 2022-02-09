@@ -7632,7 +7632,11 @@ body {
   overflow-x: hidden;
 }
 
-.header {
+header {
+  background-color: #3D9885;
+}
+
+footer {
   background-color: #3D9885;
 }
 
