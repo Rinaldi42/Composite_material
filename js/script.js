@@ -17,7 +17,7 @@ function graphDraw(fiber='reforço', young_mod_fiber = 0, fiberUnity = 'Gpa', fi
   let youngModIsodeformation = []
   let youngModIsotension = []
 
-  for (var x = 0; x <= 1.001; x += 0.01/(2*points)) {
+  for (var x = 0; x <= 1.001; x += 0.1/(2*points)) {
     fiberPercent.push(x*100)
     youngModIsodeformation.push(youngModFiber*x+youngModMatriz*(1-x))
     youngModIsotension.push((x/youngModFiber+(1-x)/youngModMatriz)**(-1))
