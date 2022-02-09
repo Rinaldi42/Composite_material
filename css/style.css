@@ -7628,6 +7628,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  overflow-x: hidden;
+}
+
 .header {
   background-color: #3D9885;
 }
