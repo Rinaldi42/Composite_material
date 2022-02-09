@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script type="text/javascript">
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+</head>
+<body>
+  <header class=" header sticky-top">
+    <div class="container-fluid">
+      <ul class="nav justify-content-center">
+        <li class="nav-item ">
+          <a class="nav-link " aria-current="page" href="#">abc</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">abc</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">abc</a>
+        </li>
+      </ul>
+    </div>  
+  </header> 
+
+  <main class="main">
+
+    <!-- <p>Isodeformação
+
+      $E_c = E_f \cdot V_f + E_m \cdot V_m$
+
+      Isotensão
+
+      $\frac{1}{E_c}=\frac{V_f}{E_f}+\frac{V_m}{E_m}$
+    </p> -->
+    <div class="container-fluid">
+
+    
+      <div class=" row p-2 d-flex   justify-content-center align-items-center ">
+
+        <div class="col-6 m-1 order-1 col-sm-3 order-sm-1 col-lg-3 m-lg-0 ">
+          <div class="form-floating"> 
+            <input type="text" id="fiber"  class="form-control">
+            <label for="fiber" class="form-label">reforço</label>
+          </div>
+        </div>
+
+        <div class="col-6 m-1 order-3 col-sm-3 order-sm-2 col-lg-2 m-lg-0  ">
+          <div class="form-floating"> 
+            <input type="number" id="youngModFiber" class="form-control">
+            <label for="youngModfiber" class="form-label">Young module</label>
+          </div>
+        </div>
+
+        <div class="col-4 m-1 order-2 col-sm-2 order-sm-3 col-lg-2 m-lg-0  ">
+          <div class="form-floating">
+            <select class="form-select" id="fiberUnity">
+              <option value="Gpa" selected >Gpa</option>
+              <option value="Mpa">Mpa</option>
+            </select>
+            <label for="fiberUnity">unidade</label>
+          </div>
+        </div>
+
+        <div class="col-4 m-1 justify-content-end order-4 col-sm-1 order-sm-4 col-lg-1 m-lg-0 ">
+          <input type="color" class="form-control form-control-color form-control-lg" id="fiberColor" value="#85CDCA" title="Choose your color">
+          </div>  
+        </div>
+
+      
+
+      <div class="row p-2 d-flex  flex-lg-nowrap justify-content-center align-items-center ">
+
+        <div class="col-6 m-1 order-1 col-sm-3 order-sm-1 col-lg-3 m-lg-0 ">
+          <div class="form-floating">
+            <input type="text" id="matriz" class="form-control">
+            <label for="matriz" class="form-label">Matriz</label>
+          </div>
+        </div>
+
+         <div class="col-6 m-1 order-3 col-sm-3 order-sm-2 col-lg-2 m-lg-0 ">
+          <div class="form-floating">
+            <input type="number" id="youngModMatriz" class="form-control">
+            <label for="youngModMatriz" class="form-label">Young module</label>
+          </div>
+        </div>
+
+        <div class="col-4 m-1 order-2 col-sm-2 order-sm-3 col-lg-2 m-lg-0 ">
+          <div class="form-floating">
+            <select class="form-select" id="matrizUnity" aria-label="">
+              <option value="Gpa" selected >Gpa</option>
+              <option value="Mpa">Mpa</option>
+            </select>
+            <label for="matrizUnity" class="form-label">unidade</label>
+          </div>
+        </div>
+
+        <div class="col-4 m-1 justify-content-end order-4 col-sm-1 order-sm-4 col-lg-1 m-lg-0 " >
+          <input type="color" id="matrizColor" class="form-control form-control-color form-control-lg" id="matrizColor" value="#E27D60" title="Choose your color">
+        </div>
+      </div>
+      </div>
+
+
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <label for="customRange2" class="form-label">Pontos</label>
+          <input type="range"  value="1" class="form-range" min="1" max="5" id="customRange2">
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-11 col-xl-8"> 
+          <div id='myDiv'></div> 
+        </div>
+      </div>
+    
+      <div class="row justify-content-center">
+        <p>
+          
+        Força fibra matriz
+
+        $$F_c = F_f + F_m$$
+
+        equivalente 
+
+        $E_c = E_f \cdot V_f + E_m \cdot V_m$
+
+        logo
+
+        $\frac{F_m}{F_f} = \frac{E_m \cdot V_m}{E_f \cdot V_f}$
+        </p>
+      </div>
+
+      <div class="row">
+        <p> comprimento crítico
+          $l_c = \frac{\sigma^*_f \cdot d}{2 \tau_c}$
+        </p>
+
+
+      </div>
+ 
+      </div>
+  </main>
+
+
+
+  <footer class="footer fixed-bottom">
+    <div class="container-fluid">
+      <span class="text-muted"><a>From more -GitHub -<a target="_blank" href="https://github.com/GuilhermeRinaldi"> GuilhermeRinaldi</a></span>
+    </div>
+  </footer>
+<script type="text/javascript" src="js/script.js"></script>
+<!-- <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>-->
+</body>
+</html>
+
+
