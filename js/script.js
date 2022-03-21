@@ -68,8 +68,6 @@ function graphDraw(fiber='reforço', young_mod_fiber = 0, fiberUnity = 'Gpa', fi
 
 graphDraw()
 
-
-
 let values = []
 
 function updateValues() {
@@ -87,4 +85,62 @@ document.querySelectorAll(['input','select']).forEach( function(input) {
       
     })
 })
+
+
+let frame = 0
+
+var canvas = document.getElementById('isotension')
+var ctx = canvas.getContext('2d')
+const composite = {
+
+  width: 120,
+  height: 100,
+
+  draw(position, canvasName) {
+    const center = document.getElementById(canvasName).width/2 - composite.width/2
+    ctx.clearRect(0,0,500,150);
+    ctx.fillStyle = "#3D9885"
+    ctx.fillRect (center ,0, composite.width, composite.height)
+
+    ctx.fillStyle = "#000"
+    for (var i = 1; i <= 9; i++) {
+        if (position === 'horizontal') {
+            ctx.fillRect (center, composite.height*i/10-2.5, composite.width, 5)  
+        }
+        else if (position === 'vertical') {
+          ctx.fillRect (center + composite.width*i/10-2.5, 0, 5, composite.height)
+        }
+    }
+   
+    ctx.beginPath()
+    ctx.fillRect (center + composite.width*1.3 - composite.width/6, 47, composite.width/6, 6)
+    ctx.moveTo(center + composite.width*1.5, 50)
+    ctx.lineTo(center + composite.width*1.3, 65)
+    ctx.lineTo(center + composite.width*1.3, 35)
+    ctx.fill()
+
+    ctx.beginPath()
+    ctx.fillRect (center - composite.width*0.3 , 47, composite.width/6, 6)
+    ctx.moveTo(center - composite.width*0.5, 50)
+    ctx.lineTo(center - composite.width*0.3, 65)
+    ctx.lineTo(center - composite.width*0.3, 35)
+    ctx.fill()
+  },
+  move() {
+  composite.width += Math.cos(frame/10)
+  }
+}
+
+
+
+function loop() {
+composite.draw('vertical', 'isotension')
+composite.move()
+  requestAnimationFrame(loop)
+  frame += 1
+}
+
+loop()
+
+
 

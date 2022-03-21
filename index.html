@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -40,10 +40,19 @@
 
       $$E_c = E_f \cdot V_f + E_m \cdot V_m$$
 
+      <!-- <canvas id="isodeformation" width="260" height="100"></canvas> -->
+
+
       Isotensão
 
       $$\frac{1}{E_c}=\frac{V_f}{E_f}+\frac{V_m}{E_m}$$
+
+      <canvas id="isotension" width="260" height="100"></canvas>
+
+
     </p>
+    
+
     <div class="container-fluid">
 
     
@@ -66,8 +75,8 @@
         <div class="col-4 m-1 order-2 col-sm-2 order-sm-3 col-lg-2 m-lg-0  ">
           <div class="form-floating">
             <select class="form-select" id="fiberUnity">
-              <option value="Gpa" selected >Gpa</option>
-              <option value="Mpa">Mpa</option>
+              <option value="Gpa" selected >GPa</option>
+              <option value="Mpa">MPa</option>
             </select>
             <label for="fiberUnity">unidade</label>
           </div>
@@ -99,8 +108,8 @@
         <div class="col-4 m-1 order-2 col-sm-2 order-sm-3 col-lg-2 m-lg-0 ">
           <div class="form-floating">
             <select class="form-select" id="matrizUnity" aria-label="">
-              <option value="Gpa" selected >Gpa</option>
-              <option value="Mpa">Mpa</option>
+              <option value="Gpa" selected >GPa</option>
+              <option value="Mpa">MPa</option>
             </select>
             <label for="matrizUnity" class="form-label">unidade</label>
           </div>
