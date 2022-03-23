@@ -87,55 +87,70 @@ document.querySelectorAll(['input','select']).forEach( function(input) {
 })
 
 
-let frame = 0
 
-var canvas = document.getElementById('isotension')
-var ctx = canvas.getContext('2d')
-const composite = {
+let animations = {}
 
-  width: 120,
-  height: 100,
+function makeAnimation(direction, canvasName) {
+  
+  canvas =  document.getElementById(canvasName)
+  ctx = canvas.getContext('2d')
 
-  draw(position, canvasName) {
-    const center = document.getElementById(canvasName).width/2 - composite.width/2
-    ctx.clearRect(0,0,500,150);
-    ctx.fillStyle = "#3D9885"
-    ctx.fillRect (center ,0, composite.width, composite.height)
+  const composite = {
+    name: canvasName,
+    width: 120,
+    height: 100,
 
-    ctx.fillStyle = "#000"
-    for (var i = 1; i <= 9; i++) {
-        if (position === 'horizontal') {
-            ctx.fillRect (center, composite.height*i/10-2.5, composite.width, 5)  
-        }
-        else if (position === 'vertical') {
-          ctx.fillRect (center + composite.width*i/10-2.5, 0, 5, composite.height)
-        }
+    draw() {
+      const center = canvas.width/2 - composite.width/2
+      ctx.clearRect(0,0,260,150);
+      ctx.fillStyle = '#3D9885'
+      ctx.fillRect (center ,0, composite.width, composite.height)
+
+      ctx.fillStyle = "#000"
+      for (var i = 1; i <= 9; i++) {
+          if (direction === 'horizontal') {
+              ctx.fillRect (center, composite.height*i/10-2.5, composite.width, 5)  
+          }
+          else if (direction === 'vertical') {
+            ctx.fillRect (center + composite.width*i/10-2.5, 0, 5, composite.height)
+          }
+      }
+     
+      ctx.beginPath()
+      ctx.fillRect (center + composite.width*1.3 - composite.width/6, 47, composite.width/6, 6)
+      ctx.moveTo(center + composite.width*1.5, 50)
+      ctx.lineTo(center + composite.width*1.3, 65)
+      ctx.lineTo(center + composite.width*1.3, 35)
+      ctx.fill()
+
+      ctx.beginPath()
+      ctx.fillRect (center - composite.width*0.3 , 47, composite.width/6, 6)
+      ctx.moveTo(center - composite.width*0.5, 50)
+      ctx.lineTo(center - composite.width*0.3, 65)
+      ctx.lineTo(center - composite.width*0.3, 35)
+      ctx.fill()
+    },
+    move() {
+      composite.width += Math.cos(frame/10)
     }
-   
-    ctx.beginPath()
-    ctx.fillRect (center + composite.width*1.3 - composite.width/6, 47, composite.width/6, 6)
-    ctx.moveTo(center + composite.width*1.5, 50)
-    ctx.lineTo(center + composite.width*1.3, 65)
-    ctx.lineTo(center + composite.width*1.3, 35)
-    ctx.fill()
-
-    ctx.beginPath()
-    ctx.fillRect (center - composite.width*0.3 , 47, composite.width/6, 6)
-    ctx.moveTo(center - composite.width*0.5, 50)
-    ctx.lineTo(center - composite.width*0.3, 65)
-    ctx.lineTo(center - composite.width*0.3, 35)
-    ctx.fill()
-  },
-  move() {
-  composite.width += Math.cos(frame/10)
   }
+  return composite
 }
 
 
+let frame = 0
+
+animations.horizontal = makeAnimation('horizontal', 'isodeformation')
+animations.vertical = makeAnimation('vertical', 'isotension')
 
 function loop() {
-composite.draw('vertical', 'isotension')
-composite.move()
+
+  animations.horizontal.draw()
+  animations.horizontal.move()
+
+  animations.vertical.draw()
+  animations.vertical.move()
+
   requestAnimationFrame(loop)
   frame += 1
 }
