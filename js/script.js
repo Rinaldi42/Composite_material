@@ -86,9 +86,7 @@ document.querySelectorAll(['input','select']).forEach( function(input) {
     })
 })
 
-
-
-let animations = {}
+const animations = {}
 
 function makeAnimation(direction, canvasName) {
   
@@ -96,7 +94,7 @@ function makeAnimation(direction, canvasName) {
   ctx = canvas.getContext('2d')
 
   const composite = {
-    name: canvasName,
+    
     width: 120,
     height: 100,
 
@@ -141,15 +139,15 @@ function makeAnimation(direction, canvasName) {
 let frame = 0
 
 animations.horizontal = makeAnimation('horizontal', 'isodeformation')
-animations.vertical = makeAnimation('vertical', 'isotension')
+// animations.vertical = makeAnimation('vertical', 'isotension')
 
 function loop() {
 
   animations.horizontal.draw()
   animations.horizontal.move()
 
-  animations.vertical.draw()
-  animations.vertical.move()
+  // animations.vertical.draw()
+  // animations.vertical.move()
 
   requestAnimationFrame(loop)
   frame += 1

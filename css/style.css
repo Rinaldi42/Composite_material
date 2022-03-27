@@ -7640,4 +7640,62 @@ footer {
   background-color: #C38D9E;
 }
 
+#p1:checked ~ .slide {
+  margin-left: 0;
+}
+
+#p2:checked ~ .slide {
+  margin-left: -20%;
+  margin-right: 20%;
+}
+
+#p3:checked ~ .slide {
+  margin-left: -40%;
+  margin-right: 40%;
+}
+
+#p4:checked ~ .slide {
+  margin-left: -60%;
+  margin-right: 60%;
+}
+
+#p5:checked ~ .slide {
+  margin-left: -80%;
+  margin-right: 80%;
+}
+
+.l1 {
+  background-color: #FFE34F;
+}
+
+.l2 {
+  background-color: #FFC434;
+}
+
+.l3 {
+  background-color: #F99C29;
+}
+
+.l4 {
+  background-color: #EB5A1C;
+}
+
+.l5 {
+  background-color: #47927E;
+}
+
+input[name=p] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.navegation label {
+  width: 100vw;
+  text-align: center;
+  transition: width 0.3s;
+}
+.navegation label:hover {
+  width: 120vw;
+}
+
 /*# sourceMappingURL=style.css.map */
