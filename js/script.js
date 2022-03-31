@@ -90,46 +90,45 @@ const animations = {}
 
 function makeAnimation(direction, canvasName) {
   
-  canvas =  document.getElementById(canvasName)
-  ctx = canvas.getContext('2d')
+  asName = canvasName
 
   const composite = {
-    
+    ctx: document.getElementById(asName).getContext('2d'),
     width: 120,
     height: 100,
 
     draw() {
-      const center = canvas.width/2 - composite.width/2
-      ctx.clearRect(0,0,260,150);
-      ctx.fillStyle = '#3D9885'
-      ctx.fillRect (center ,0, composite.width, composite.height)
+      const center = 260/2 - composite.width/2
+      composite.ctx.clearRect(0,0,260,150)
+      composite.ctx.fillStyle = '#47927E'
+      composite.ctx.fillRect (center ,0, composite.width, composite.height)
 
-      ctx.fillStyle = "#000"
+      composite.ctx.fillStyle = "#000"
       for (var i = 1; i <= 9; i++) {
           if (direction === 'horizontal') {
-              ctx.fillRect (center, composite.height*i/10-2.5, composite.width, 5)  
+              composite.ctx.fillRect (center, composite.height*i/10-2.5, composite.width, 5)  
           }
           else if (direction === 'vertical') {
-            ctx.fillRect (center + composite.width*i/10-2.5, 0, 5, composite.height)
+            composite.ctx.fillRect (center + composite.width*i/10-2.5, 0, 5, composite.height)
           }
       }
      
-      ctx.beginPath()
-      ctx.fillRect (center + composite.width*1.3 - composite.width/6, 47, composite.width/6, 6)
-      ctx.moveTo(center + composite.width*1.5, 50)
-      ctx.lineTo(center + composite.width*1.3, 65)
-      ctx.lineTo(center + composite.width*1.3, 35)
-      ctx.fill()
+      composite.ctx.beginPath()
+      composite.ctx.fillRect (center + composite.width*1.3 - composite.width/6, 47, composite.width/6, 6)
+      composite.ctx.moveTo(center + composite.width*1.5, 50)
+      composite.ctx.lineTo(center + composite.width*1.3, 65)
+      composite.ctx.lineTo(center + composite.width*1.3, 35)
+      composite.ctx.fill()
 
-      ctx.beginPath()
-      ctx.fillRect (center - composite.width*0.3 , 47, composite.width/6, 6)
-      ctx.moveTo(center - composite.width*0.5, 50)
-      ctx.lineTo(center - composite.width*0.3, 65)
-      ctx.lineTo(center - composite.width*0.3, 35)
-      ctx.fill()
+      composite.ctx.beginPath()
+      composite.ctx.fillRect (center - composite.width*0.3 , 47, composite.width/6, 6)
+      composite.ctx.moveTo(center - composite.width*0.5, 50)
+      composite.ctx.lineTo(center - composite.width*0.3, 65)
+      composite.ctx.lineTo(center - composite.width*0.3, 35)
+      composite.ctx.fill()
     },
     move() {
-      composite.width += Math.cos(frame/10)
+      composite.width += Math.cos(frame/10)/2
     }
   }
   return composite
@@ -139,15 +138,15 @@ function makeAnimation(direction, canvasName) {
 let frame = 0
 
 animations.horizontal = makeAnimation('horizontal', 'isodeformation')
-// animations.vertical = makeAnimation('vertical', 'isotension')
+animations.vertical = makeAnimation('vertical', 'isotension')
 
 function loop() {
 
   animations.horizontal.draw()
   animations.horizontal.move()
 
-  // animations.vertical.draw()
-  // animations.vertical.move()
+  animations.vertical.draw()
+  animations.vertical.move()
 
   requestAnimationFrame(loop)
   frame += 1

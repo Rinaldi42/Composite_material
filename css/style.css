@@ -2211,7 +2211,7 @@ progress {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #F6BD70;
+  background-color: #FFE34F;
 }
 
 .nav-fill > .nav-link,
@@ -2298,9 +2298,9 @@ progress {
 .form-control:focus {
   color: #212529;
   background-color: #fff;
-  border-color: #f7c47e;
+  border-color: #ffe661;
   outline: 0;
-  box-shadow: 0 0 0 0px rgba(246, 189, 112, 0.25);
+  box-shadow: 0 0 0 0px rgba(255, 227, 79, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -2460,9 +2460,9 @@ textarea.form-control-lg {
   }
 }
 .form-select:focus {
-  border-color: #f7c47e;
+  border-color: #ffe661;
   outline: 0;
-  box-shadow: 0 0 0 0px rgba(246, 189, 112, 0.25);
+  box-shadow: 0 0 0 0px rgba(255, 227, 79, 0.25);
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   padding-right: 0.75rem;
@@ -2526,13 +2526,13 @@ textarea.form-control-lg {
   filter: brightness(90%);
 }
 .form-check-input:focus {
-  border-color: #f7c47e;
+  border-color: #ffe661;
   outline: 0;
-  box-shadow: 0 0 0 0px rgba(246, 189, 112, 0.25);
+  box-shadow: 0 0 0 0px rgba(255, 227, 79, 0.25);
 }
 .form-check-input:checked {
-  background-color: #F6BD70;
-  border-color: #F6BD70;
+  background-color: #FFE34F;
+  border-color: #FFE34F;
 }
 .form-check-input:checked[type=checkbox] {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
@@ -2541,8 +2541,8 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #F6BD70;
-  border-color: #F6BD70;
+  background-color: #FFE34F;
+  border-color: #FFE34F;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -2571,7 +2571,7 @@ textarea.form-control-lg {
   }
 }
 .form-switch .form-check-input:focus {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23f7c47e'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffe661'/%3e%3c/svg%3e");
 }
 .form-switch .form-check-input:checked {
   background-position: right center;
@@ -2617,7 +2617,7 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #F6BD70;
+  background-color: #FFE34F;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2629,7 +2629,7 @@ textarea.form-control-lg {
   }
 }
 .form-range::-webkit-slider-thumb:active {
-  background-color: #f8ca8d;
+  background-color: #ffe972;
 }
 .form-range::-webkit-slider-runnable-track {
   width: 100%;
@@ -2643,7 +2643,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #F6BD70;
+  background-color: #FFE34F;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2655,7 +2655,7 @@ textarea.form-control-lg {
   }
 }
 .form-range::-moz-range-thumb:active {
-  background-color: #f8ca8d;
+  background-color: #ffe972;
 }
 .form-range::-moz-range-track {
   width: 100%;
@@ -7636,32 +7636,8 @@ header {
   background-color: #C38D9E;
 }
 
-footer {
-  background-color: #C38D9E;
-}
-
-#p1:checked ~ .slide {
-  margin-left: 0;
-}
-
-#p2:checked ~ .slide {
-  margin-left: -20%;
-  margin-right: 20%;
-}
-
-#p3:checked ~ .slide {
-  margin-left: -40%;
-  margin-right: 40%;
-}
-
-#p4:checked ~ .slide {
-  margin-left: -60%;
-  margin-right: 60%;
-}
-
-#p5:checked ~ .slide {
-  margin-left: -80%;
-  margin-right: 80%;
+* {
+  font-family: arial;
 }
 
 .l1 {
@@ -7684,17 +7660,18 @@ footer {
   background-color: #47927E;
 }
 
-input[name=p] {
-  position: absolute;
-  visibility: hidden;
-}
-
-.navegation label {
+.navegation a {
   width: 100vw;
+  height: 6vh;
   text-align: center;
   transition: width 0.3s;
+  color: black;
+  line-height: 6vh;
+  text-decoration: none;
+  font-style: normal;
+  transition: width 0.3s;
 }
-.navegation label:hover {
+.navegation a:hover {
   width: 120vw;
 }
 
